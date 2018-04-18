@@ -3,7 +3,7 @@ layout: post
 title:  "熊孩子必须死 发布页"
 date:   2018-04-18
 excerpt: "熊孩子必须死 发布页"
-project: false
+project: true
 tag:
 - game
 comments: true
