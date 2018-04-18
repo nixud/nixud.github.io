@@ -1,37 +1,25 @@
----
-layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, moon]
-date: 2016-03-21
-comments: false
----
-    
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
+# 心渡的小黑屋
 
-## Features
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
+## 这里是Xindu233的个人博客。
+#####这个博客上会记录技术性文章，杂谈以及Xindu233所做的的项目。
 
-## Preview
+### Xindu233与他的博客
 
-{% capture images %}
-    https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
-    https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png
-{% endcapture %}
-{% include gallery images=images caption="Screenshots of Moon Theme" cols=2 %}
+Xindu233目前是西安电子科技大学软件学院的大一学生，还在学习的道路上。这个博客存在的初衷，便是希望它能记录下Xindu233在XDU的学习和生活，也~~或许~~能对Xindu233有一个鞭策的作用，促使他在软件工程师的道路上走下去。但同时Xindu233也很愿意通过这个博客分享一些自己学习的经验和技术性文章。如果Xindu233写的内容对你有所帮助，他会很开心的: )
 
-See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub.
+目前博客的博文还很少，还在建设当中。
 
-## Getting Started
+### 你可以在这里找到什么
 
-To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
-      
-[Install Moon](https://github.com/TaylanTatli/Moon){: .btn}
+* 一些技术性文章
+Xindu233会陆续把他学习的经验分享到这里，希望能对其他人有所帮助。
+
+* Xindu233做过的项目
+你同时也能在这上面找到Xindu233做过的一些项目。如果它们能让你快乐几分钟，或是对你的日常生活学习提供方便，那就是坠吼的。
+
+* 一些不是开发者也看得懂的文章
+这里面可能包括了Xindu233的感想，游记或者日记。
+
+### 我要联系Xindu233
+
+Xindu233很贴心地在主页上写下了他的联系方式。你可以点击主页上的相应图标来找到Xindu233。

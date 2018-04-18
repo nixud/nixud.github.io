@@ -1,6 +1,6 @@
 # Site
 title:              心渡的小黑屋
-bio:                'Xindu233的个人博客，用于进行文章和Xindu233写的项目的记录'
+bio:                'Xindu233的个人博客，用于将文章和Xindu233的项目优雅地展示出来'
 description:        "博主目前是软件工程大一在校学生，这个博客将会记录一些技术性文章、杂谈以及Xindu233至今为止的项目"
 reading_time:       true
 words_per_minute:   200
@@ -40,7 +40,7 @@ disqus_shortname:   taylantatli
 email:              594892170@qq.com
 #twitter:           username
 #facebook:          username
-github-url:         username
+github-url:         xindu233
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin:          username
 #xing:              username
