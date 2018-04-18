@@ -1,7 +1,7 @@
 # Site
 title:              心渡的小黑屋
-bio:                'Xindu233的个人博客'
-description:        "博主目前是软件工程大一在校学生，这个博客将会记录各种各样的有趣东西"
+bio:                'Xindu233的个人博客，用于进行文章和Xindu233写的项目的记录'
+description:        "博主目前是软件工程大一在校学生，这个博客将会记录一些技术性文章、杂谈以及Xindu233至今为止的项目"
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
