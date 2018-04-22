@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61bac0d7-026a-43f7-8161-6f3556e83ef2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/_posts/2018-04-22-u3d-Animator的使用.md" beforeDir="false" />
-    </list>
+    <list default="true" id="61bac0d7-026a-43f7-8161-6f3556e83ef2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -140,16 +138,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524368487191</updated>
-      <workItem from="1524368488698" duration="4710000" />
+      <workItem from="1524368488698" duration="4768000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4710000" />
+    <option name="totallyTimeSpent" value="4768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="543" y="57" width="1400" height="964" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
