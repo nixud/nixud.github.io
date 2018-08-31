@@ -9,6 +9,7 @@ background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 url:                https://xindu233.github.io
+link:               友情链接
 link1_name:         DaPao
 link1:              https://blog.dapaostudio.com
 link2_name:         KeybrL
