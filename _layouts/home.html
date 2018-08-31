@@ -30,18 +30,30 @@ layout: compress
 			            </a>
                     </h3>
                     {% include social-links.html %}
-                  <hr class="hr-line">
-                  <h3 class="title">
-                         <a class="btn zoombtn" href="{{ site.url }}/about">
-                         About
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/posts">
-                         Posts 
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/projects">
-                         Projects
-                         </a>
-                 </h3>
+                    <hr class="hr-line">
+                    <h3 class="title">
+                        <a class="btn zoombtn" href="{{ site.url }}/about">
+                        About
+                        </a>
+                        <a class="btn zoombtn" href="{{ site.url }}/posts">
+                        Posts 
+                        </a>
+                        <a class="btn zoombtn" href="{{ site.url }}/projects">
+                        Projects
+                        </a>
+                    </h3>
+                    <hr class="hr-line">
+                    <h3 class="links">
+                        <a href="{{ site.url }}">
+                            <p style="font-size:1rem;font-weight:300">"友情链接："</p>
+                        </a>
+                        <a class="zoombtn" href="{{ site.link1 }}">
+                        	<p style="font-size:1rem;font-weight:300">{{ site.link1_time }}</p>
+                        </a>
+                        <a class="zoombtn" href="{{ site.link2 }}">
+                            <p style="font-size:1rem;font-weight:300">{{ site.link2_time }}</p>
+                        </a>
+                    </h3>
             </div>
         </div>
     </header>
