@@ -23,8 +23,7 @@ comments: true
 
 一个好消息，同时也是一个坏消息，是编写shader有shader专门的语言（shading language，着色语言），而且语法和C#完全不同（这破文章顶上只提了C#啊卧槽）。重新学习的成本是有的，但好消息在于这个东西接触的人比较少，而且由于用途单一，比较简单，没有class的概念。对于shader的核心部分，unity选用了HLSL/Cg语言。
 
-> If you are familliar with C or one of the many languages derived from C, then Cg programs tend to be **short and understandable.** 
->--<The Cg Tutorial>
+> If you are familliar with C or one of the many languages derived from C, then Cg programs tend to be **short and understandable.** --<The Cg Tutorial>
 
 shader分为三种：
 
