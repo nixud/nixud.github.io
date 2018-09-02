@@ -4,7 +4,6 @@ title:  "Unity-不值一提的shader入门文章（下）"
 date:   2018-08-31
 excerpt: "一个shader的入门小文章的下篇"
 tag:
-- blog
 - unity
 comments: true
 ---

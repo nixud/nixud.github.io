@@ -4,7 +4,6 @@ title:  "Unity-Unity2d入门"
 date:   2018-04-18
 excerpt: "记述了使用u2d最基础的一些知识"
 tag:
-- blog
 - unity
 comments: true
 ---
