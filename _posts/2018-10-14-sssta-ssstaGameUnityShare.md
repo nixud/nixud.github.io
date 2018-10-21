@@ -57,3 +57,108 @@ public class move : MonoBehaviour {
 	}
 }
 ```
+
+
+## 第二次分享
+
+### 一个更优雅的移动方式
+
+上次分享提到了一种最简单的移动，但是这样写移动有一个问题。即同时按住两个方向上移动的键时，物体会以原先速度的根号二倍速移动。这个问题之所以发生是因为同时满足了两个if的条件，故而速度相加的斜向速度为原来的根号二倍速。此时，我们就需要一个优雅的解决方案了。
+
+显而易见，一个可以解决问题的简单方法是if else结构。即把前后左右斜向移动使用一个if以及七个if else语句实现。
+
+还可以在rigidbody组件上给物体添加力来实现移动。
+方法为rigidbody.Addforce。
+
+```
+（1）ForceMode.Force：默认方式，使用刚体的质量计算，以每帧间隔时间为单位计算动量。设FixedUpdate()的执行频率采用系统默认值（即0.02s），
+则由动量定理f•t=m•v
+可得：10*0.02=2*v1，从而可得v1=0.1，即每帧刚体在X轴上值增加0.1米，从而可计算得刚体的每秒移动速度为v2=(1/0.02)*v1=5m/s。
+（2）ForceMode.Acceleration：在此种作用方式下会忽略刚体的实际质量而采用默认值1.0f，时间间隔以系统帧频间隔计算（默认值为0.02s），
+即f•t=1.0•v
+即可得v1= f•t=10*0.02=0.2，即刚体每帧增加0.2米，从而可得刚体的每秒移动速度为v2=(1/0.02)*v1=10m/s。
+（3）ForceMode.Impulse：此种方式采用瞬间力作用方式，即把t的值默认为1，不再采用系统的帧频间隔，
+即f•1.0=m•v
+即可得v1=f/m=10.0/2.0=5.0，
+即刚体每帧增加5.0米，从而可得刚体每秒的速度为v2=(1/0.02)*5.0=250m/s。
+（4）ForceMode.VelocityChange：此种作用方式下将忽略刚体的实际质量，采用默认质量1.0，同时也忽略系统的实际帧频间隔，采用默认间隔1.0，
+即f•1.0=1.0•v
+即可得v1=f=10.0，
+即刚体每帧沿X轴移动距离为10米，从而可得刚体每秒的速度为v2=(1/0.02)*v1=500m/s。
+```
+也可以使用CharacterController组件的Move以及SimpleMove。参考unity示例代码:
+
+[传送门](https://docs.unity3d.com/ScriptReference/CharacterController.html)
+
+### 将摄像机绑定在物体的合适位置并通过C#脚本读取水平垂直输入
+
+```
+x += Input.GetAxis("Mouse X") * 0.2f;
+y -= Input.GetAxis("Mouse Y") * 0.2f;
+```
+Input.GetAxis需要的字符串在Edit->Project Settings->Input中。
+
+### 通过代码处理摄像机的角度与位置旋转
+
+##### 关于欧拉角：
+
+莱昂哈德•欧拉用欧拉角来描述刚体在三维欧几里得空间的取向。对于任何参考系，一个刚体的取向，是依照顺序，从这参考系，做三个欧拉角的旋转而设定的。所以，刚体的取向可以用三个基本旋转矩阵来决定。换句话说，任何关于刚体旋转的旋转矩阵是由三个基本旋转矩阵复合而成的。 
+
+对于在三维空间里的一个参考系，任何坐标系的取向，都可以用三个欧拉角来表现。参考系又称为实验室参考系，是静止不动的。而坐标系则固定于刚体，随着刚体的旋转而旋转。
+
+[欧拉角 - 维基百科](https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%8B%89%E8%A7%92)
+
+[欧拉角 - 百度百科](https://baike.baidu.com/item/%E6%AC%A7%E6%8B%89%E8%A7%92/1626212)
+
+##### 代码具体实现：
+
+```
+x = cam.transform.eulerAngles.y;
+y = cam.transform.eulerAngles.x;//获取当前的欧拉角
+```
+
+```
+x += Input.GetAxis("Mouse X") * 0.2f;
+y -= Input.GetAxis("Mouse Y") * 0.2f;//得到被改变的欧拉角
+```
+
+```
+Quaternion rotate = Quaternion.Euler(y, x, 0);//得到相应的旋转四元数
+```
+
+```
+cam.transform.rotation = rotate;//赋值给摄像机的transfrom
+```
+
+
+示例代码：
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class cameraContorl : MonoBehaviour {
+
+    public GameObject cam;
+    public float distance;
+
+    void Update()
+    {
+        float x, y;
+
+        x = cam.transform.eulerAngles.y;
+        y = cam.transform.eulerAngles.x;
+
+        distance -= Input.GetAxis("Mouse ScrollWheel");
+        x += Input.GetAxis("Mouse X") * 0.2f;
+        y -= Input.GetAxis("Mouse Y") * 0.2f;
+
+        Quaternion rotate = Quaternion.Euler(y, x, 0);
+        Vector3 positi = rotate * new Vector3(0.0f, 0.0f, -distance) + transform.position;
+
+        cam.transform.rotation = rotate;
+        cam.transform.position = positi;
+       
+    }
+}
+```
