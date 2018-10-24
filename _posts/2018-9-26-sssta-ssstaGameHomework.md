@@ -34,4 +34,27 @@ comments: true
 
 #### 答案
 
-将于第二次活动时更新。
+1.
+public int[] TwoSum(int[] a)
+        {
+            Array.Sort(a);
+            return a;
+        }
+
+2.
+//以下为暴力法
+public int[] TwoSum(int[] nums, int target)
+{
+    for (int i = 0; i < nums.Count(); i++)
+    {
+        for (int u = i + 1; u < nums.Count(); u++)
+        {
+            if (nums[i] + nums[u] == target)
+            {
+                return new int[] { i, u };
+            }
+        }
+    }
+
+    throw new Exception("No two sum solution");
+}
