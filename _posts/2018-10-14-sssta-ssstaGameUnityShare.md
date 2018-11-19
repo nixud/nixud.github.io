@@ -162,3 +162,51 @@ public class cameraContorl : MonoBehaviour {
     }
 }
 ```
+
+## 第三次技术分享
+
+#### unity动画的简单介绍
+
+实际上，unity动画部分十分复杂，并不太可能在短时间内讲清楚。这次介绍主要是对unity动画基本概念的介绍。
+
+##### Animation：
+unity动画的制作工具。是unity的旧版动画系统，一般来说3d模型的动画都应当由美术制作。
+
+##### Animator：
+一般来讲，在最近的unity版本中，动画都通过Animator实现。Animator模块可以编辑.controller文件，而.controller用于控制动画以及当前的状态。
+###### Animator中的状态机可以可视化的调节动画的播放等。它提供了动画状态之间的切换功能、自带动画融合、能编辑动画播放的逻辑顺序、能设置随机播放、能设置行为树。
+
+#### unity实现射击
+
+说到unity的射击，就不得不提射线（Ray）。射线是unity预设的类。射线为一个从起点到终点，以特定方向发射的射线。
+> A ray is an infinite line starting at origin and going in some direction.
+
+发射射线和射线本身一样易于理解。实际上，让物体向前方发射射线只需要
+
+```
+Ray ray = new Ray(transform.position, transform.forward);
+//要确保你的物体没有碰撞盒或者rigidbody，否则ray会停止
+```
+检测射线有没有接触物体，要使用RaycastHit类。
+示例代码如下：
+
+```
+if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider != null)
+                {
+                    hit.collider.enabled = false;
+                }
+            }
+        }
+```
+上面的代码包含了发射一个射线以及检测射线碰撞，射线碰撞到碰撞盒后将碰撞盒隐藏。
+#### 粒子系统(Particle System)
+可以用它做出相当棒的效果，比如雨雪等。（如何制作雨待补充，当然其实可以百度）
+#### Line Renderer
+通过代码操控实现画线。

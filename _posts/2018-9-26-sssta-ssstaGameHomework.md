@@ -35,13 +35,16 @@ comments: true
 #### 答案
 
 1.
+```
 public int[] TwoSum(int[] a)
         {
             Array.Sort(a);
             return a;
         }
+```
 
 2.
+```
 //以下为暴力法
 public int[] TwoSum(int[] nums, int target)
 {
@@ -58,3 +61,4 @@ public int[] TwoSum(int[] nums, int target)
 
     throw new Exception("No two sum solution");
 }
+```
