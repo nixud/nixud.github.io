@@ -49,12 +49,16 @@ comments: true
 最后放几张网上找的截图(轻微剧透，慎看)，啊，是赤途，我死了www
 
 
-![image](https://img3.doubanio.com/view/group_topic/l/public/p20028272.webp)
-“用马列主义教育刘先生”
-![image](https://imgsa.baidu.com/forum/w%3D580/sign=33920eb33ed12f2ece05ae687fc3d5ff/25a4fd44ebf81a4c197183addf2a6059242da6ae.jpg)
-![image](https://img3.doubanio.com/view/thing_review/l/public/p29935.webp)
-![image](https://img1.doubanio.com/view/thing_review/l/public/p29937.webp)
-![image](https://img1.doubanio.com/view/thing_review/l/public/p29938.webp)
-![image](https://img3.doubanio.com/view/thing_review/l/public/p29942.webp)
-![image](https://img3.doubanio.com/view/thing_review/l/public/p29935.webp)
-![image](https://imgsa.baidu.com/forum/w%3D580/sign=b3e82493973df8dca63d8f99fd1172bf/ce86eaef76c6a7ef0d3c8242f5faaf51f2de66d7.jpg)
+![image](~/images/chengguang/leifucheng.png)
+![image](~/images/chengguang/LiuMalie.jpg)
+死前选择“用马列主义教育刘先生”
+![image](~/images/chengguang/Gangshan.jpg)
+冈山
+![image](~/images/chengguang/ks.png)
+康生，啊不，康兴
+![image](~/images/chengguang/wg.png)
+这个场景...emmm 是什么时期很明显了
+![image](~/images/chengguang/chenglong.png)
+陈老板233333
+![image](~/images/chengguang/zxm.jpg)
+全剧高潮之一
