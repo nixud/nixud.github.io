@@ -49,16 +49,18 @@ comments: true
 最后放几张网上找的截图(轻微剧透，慎看)，啊，是赤途，我死了www
 
 
-![image](~/images/chengguang/leifucheng.png)
-![image](~/images/chengguang/LiuMalie.jpg)
-死前选择“用马列主义教育刘先生”
-![image](~/images/chengguang/Gangshan.jpg)
+![image](https://github.com/xindu233/xindu233.github.io/blob/master/_posts/images/chengguang/leifucheng.png?raw=true)
+![image](https://github.com/xindu233/xindu233.github.io/blob/master/_posts/images/chengguang/LiuMalie.jpg?raw=true)
+生死关头选择“用马列主义教育刘先生”
+![image](https://github.com/xindu233/xindu233.github.io/blob/master/_posts/images/chengguang/Gangshan.jpg?raw=true)
 冈山
-![image](~/images/chengguang/ks.png)
+![image](https://github.com/xindu233/xindu233.github.io/blob/master/_posts/images/chengguang/ks.png?raw=true)
 康生，啊不，康兴
-![image](~/images/chengguang/wg.png)
+
+“我党最有力的武器——人民群众”
+![image](https://github.com/xindu233/xindu233.github.io/blob/master/_posts/images/chengguang/wg.png?raw=true)
 这个场景...emmm 是什么时期很明显了
-![image](~/images/chengguang/chenglong.png)
-陈老板233333
-![image](~/images/chengguang/zxm.jpg)
+![image](https://github.com/xindu233/xindu233.github.io/blob/master/_posts/images/chengguang/chenglong.png?raw=true)
+李连杰（？）讽刺主角方别
+![image](https://github.com/xindu233/xindu233.github.io/blob/master/_posts/images/chengguang/zxm.jpg?raw=true)
 全剧高潮之一
