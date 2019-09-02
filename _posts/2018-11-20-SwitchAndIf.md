@@ -9,6 +9,8 @@ tag:
 comments: true
 ---
 
+写在前面：经konge大佬的指正，这篇文章关于C/C++的所有内容均建立在没有进行优化（-O0）的情况下，且我不保证它的完全正确。
+
 Python没有自带switch…case结构，他们在[官方文档中的faq](https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python/)里谈到：
 
 >Why isn’t there a switch or case statement in Python?
@@ -78,10 +80,6 @@ PEP275后面的内容，讲的就是两种方法的细节以及例子了。如�
 在那个帖子里，有一个叫Karrion的哥们儿，他不但测了java的switch...case，还去测了c的switch…case，并画出了一条相当漂亮的曲线，证明C的优化还是不错的。
 
 ![image](http://forums.xkcd.com/download/file.php?id=10727&sid=9bd999f1e079cdb68dba9ca65cf1a5dd)
-
-按理说，找到了这哥们的回答，文章是不是就结束了呢？
-
-并没有。
 
 Karrion只给出了switch…case在1到5000个分支时的时间。但我认为，这个测试只能证明C的优化很不错，但无法对实际编程起到太多的指导作用。毕竟，在平时写程序时几乎用不到500甚至5000个分支。我个人认为，在平时能用到20-30个分支已经算是较多的了。因此我更想知道的是，C中在分支数较小时，if…else和switch…case的差别有多大呢？
 
