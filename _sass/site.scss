@@ -16,7 +16,7 @@ body {
 	font-family: $font1;
 	@include font-rem($doc-font-size);
 	color: $color_tuatara;
-	background-color: $black;
+	background-color: $white;
 	background-position: center center;
 	background-attachment: fixed;
 	@media #{$small} {
