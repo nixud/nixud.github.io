@@ -1,80 +1,145 @@
-NUM_CONFETTI = 350
-COLORS = [[85,71,106], [174,61,99], [219,56,83], [244,92,68], [248,182,70]]
-PI_2 = 2*Math.PI
+window.requestAnimFrame = function()
+	{
+		return (
+			window.requestAnimationFrame       || 
+			window.webkitRequestAnimationFrame || 
+			window.mozRequestAnimationFrame    || 
+			window.oRequestAnimationFrame      || 
+			window.msRequestAnimationFrame     || 
+			function(/* function */ callback){
+				window.setTimeout(callback, 1000 / 60);
+			}
+		);
+}();
+
+var canvas = document.getElementById('canvas'); 
+var context = canvas.getContext('2d');
+
+//get DPI
+let dpi = window.devicePixelRatio || 1;
+context.scale(dpi, dpi);
+console.log(dpi);
+
+function fix_dpi() {
+//get CSS height
+//the + prefix casts it to an integer
+//the slice method gets rid of "px"
+let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
+let style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
+
+//scale the canvas
+canvas.setAttribute('height', style_height * dpi);
+canvas.setAttribute('width', style_width * dpi);
+}
+
+	var particle_count = 70,
+		particles = [],
+		couleurs   = ["#ffde74", "#ffa974", "#ff715a","#8a1253"];
+    function Particle()
+    {
+
+        this.radius = Math.round((Math.random()*3)+5);
+        this.x = Math.floor((Math.random() * ((+getComputedStyle(canvas).getPropertyValue("width").slice(0, -2) * dpi) - this.radius + 1) + this.radius));
+        this.y = Math.floor((Math.random() * ((+getComputedStyle(canvas).getPropertyValue("height").slice(0, -2) * dpi) - this.radius + 1) + this.radius));
+        this.color = couleurs[Math.round(Math.random()*couleurs.length)];
+        this.speedx = Math.round((Math.random()*201)+0)/100;
+        this.speedy = Math.round((Math.random()*201)+0)/100;
+
+        switch (Math.round(Math.random()*couleurs.length))
+        {
+            case 1:
+            this.speedx *= 1;
+            this.speedy *= 1;
+            break;
+            case 2:
+            this.speedx *= -1;
+            this.speedy *= 1;
+            break;
+            case 3:
+            this.speedx *= 1;
+            this.speedy *= -1;
+            break;
+            case 4:
+            this.speedx *= -1;
+            this.speedy *= -1;
+            break;
+        }
+            
+        this.move = function()
+        {
+            
+            context.beginPath();
+            context.globalCompositeOperation = 'source-over';
+            context.fillStyle   = this.color;
+            context.globalAlpha = 1;
+            context.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
+            context.fill();
+            context.closePath();
+
+            this.x = this.x + this.speedx;
+            this.y = this.y + this.speedy;
+            
+            if(this.x <= 0+this.radius)
+            {
+                this.speedx *= -1;
+            }
+            if(this.x >= canvas.width-this.radius)
+            {
+                this.speedx *= -1;
+            }
+            if(this.y <= 0+this.radius)
+            {
+                this.speedy *= -1;
+            }
+            if(this.y >= canvas.height-this.radius)
+            {
+                this.speedy *= -1;
+            }
+
+            for (var j = 0; j < particle_count; j++)
+            {
+                var particleActuelle = particles[j],
+                    yd = particleActuelle.y - this.y,
+                    xd = particleActuelle.x - this.x,
+                    d  = Math.sqrt(xd * xd + yd * yd);
+
+                if ( d < 200 )
+                {
+                    context.beginPath();
+                    context.globalAlpha = (200 - d) / (200 - 0);
+                    context.globalCompositeOperation = 'destination-over';
+                    context.lineWidth = 1;
+                    context.moveTo(this.x, this.y);
+                    context.lineTo(particleActuelle.x, particleActuelle.y);
+                    context.strokeStyle = this.color;
+                    context.lineCap = "round";
+                    context.stroke();
+                    context.closePath();
+                }
+            }
+        };
+    };
+    for (var i = 0; i < particle_count; i++)
+    {
+        fix_dpi();
+        var particle = new Particle();
+        particles.push(particle);
+    }
 
 
-canvas = document.getElementById "world"
-context = canvas.getContext "2d"
-window.w = 0
-window.h = 0
+    function animate()
+    {
+        fix_dpi();
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < particle_count; i++)
+        {
+            particles[i].move();
+        }
+        requestAnimFrame(animate);
+    }
+    
+    
 
-resizeWindow = ->
-  window.w = canvas.width = window.innerWidth
-  window.h = canvas.height = window.innerHeight
+   
+    animate(); 
 
-window.addEventListener 'resize', resizeWindow, false
-  
-window.onload = -> setTimeout resizeWindow, 0
-
-range = (a,b) -> (b-a)*Math.random() + a
-
-drawCircle = (x,y,r,style) ->
-  context.beginPath()
-  context.arc(x,y,r,0,PI_2,false)
-  context.fillStyle = style
-  context.fill()
-
-xpos = 0.5
-
-document.onmousemove = (e) ->
-  xpos = e.pageX/w
-
-window.requestAnimationFrame = do ->
-  window.requestAnimationFrame       ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame    ||
-  window.oRequestAnimationFrame      ||
-  window.msRequestAnimationFrame     ||
-  (callback) -> window.setTimeout(callback, 1000 / 60)
-
-
-class Confetti
-
-  constructor: ->
-    @style = COLORS[~~range(0,5)]
-    @rgb = "rgba(#{@style[0]},#{@style[1]},#{@style[2]}"
-    @r = ~~range(2,6)
-    @r2 = 2*@r
-    @replace()
-
-  replace: ->
-    @opacity = 0
-    @dop = 0.03*range(1,4)
-    @x = range(-@r2,w-@r2)
-    @y = range(-20,h-@r2)
-    @xmax = w-@r
-    @ymax = h-@r
-    @vx = range(0,2)+8*xpos-5
-    @vy = 0.7*@r+range(-1,1)
-
-  draw: ->
-    @x += @vx
-    @y += @vy
-    @opacity += @dop
-    if @opacity > 1
-      @opacity = 1
-      @dop *= -1
-    @replace() if @opacity < 0 or @y > @ymax
-    if !(0 < @x < @xmax)
-      @x = (@x + @xmax) % @xmax
-    drawCircle(~~@x,~~@y,@r,"#{@rgb},#{@opacity})")
-
-
-confetti = (new Confetti for i in [1..NUM_CONFETTI])
-
-window.step = ->
-  requestAnimationFrame(step)
-  context.clearRect(0,0,w,h)
-  c.draw() for c in confetti
-
-step()
