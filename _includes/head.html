@@ -57,5 +57,5 @@
     {% unless feature contains 'http://' or feature contains 'https://' %}{% capture feature %}{{ site.url }}/{{ feature }}{% endcapture %}{% endunless %}
     <style type="text/css">.feature {background-image:url({{ feature }});}</style>
     {% endif %} -->
-    <link href＝"{{ site.url }}/assets/css/bgtest.scss" rel＝"stylesheet"/>
+    <link type="text/css" href＝"{{ site.url }}/assets/css/bgtest.scss" rel＝"stylesheet"/>
     <canvas id="canvas"></canvas>
