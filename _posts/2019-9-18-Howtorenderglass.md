@@ -467,3 +467,59 @@ float2 _WindFrequency;
 // Add to the geometry shader, just above the line declaring the transformationMatrix.
 float2 uv = pos.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
 ```
+
+在上面的代码中，我们使用_WindDistortionMap这个变量来确定uv点的位置。然后再使用_Time.y以及_WindFrequency对位置进一步偏移。接下来我们使用上面计算出的uv来对纹理进行采样，然后加上一个可以控制风强的属性。
+
+```
+// Add as a new property.
+_WindStrength("Wind Strength", Float) = 1
+
+…
+
+// Add to the CGINCLUDE block.
+float _WindStrength;
+
+…
+
+// Add below the line declaring float2 uv.
+float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).xy * 2 - 1) * _WindStrength;
+```
+需要注意，在上面我们把纹理采样值的范围从0..1变为了-1..1。接下来，构造一个用于表示风的方向的单位向量。
+```
+// Add below the line declaring float2 windSample.
+float3 wind = normalize(float3(windSample.x, windSample.y, 0));
+```
+接下来继续构建一个让刚刚的向量旋转的矩阵，然后把这个矩阵一起乘进去。
+```
+// Add below the line declaring float3 wind.
+float3x3 windRotation = AngleAxis3x3(UNITY_PI * windSample, wind);
+
+…
+
+// Modify the existing line.
+float3x3 transformationMatrix = mul(mul(mul(tangentToLocal, windRotation), facingRotationMatrix), bendRotationMatrix);
+```
+这样就好啦，在unity editor里加入风的纹理（这个纹理已经在工程里提供了），然后把纹理的Tiling设为0.01,0.01。
+
+现在草叶已经会动了，而且情况不可谓不完美（如果你的camera离叶子够远）。当camera比较近的时候，你会发现整个叶子旋转到了奇怪的位置，这让叶子的最底端不再和地面贴合了。
+
+![image](https://roystan.net/media/tutorials/grass/blade-intersection-error.png)
+
+因此，现在需要定义另外的一个变换矩阵，这个变换矩阵只会对草叶的两个基点起作用。这个矩阵不会包括windRotation和bendRotationMatrix，这样就可以确保草叶好好的呆在地上。
+
+```
+// Add below the line declaring float3x3 transformationMatrix.
+float3x3 transformationMatrixFacing = mul(tangentToLocal, facingRotationMatrix);
+
+…
+
+// Modify the existing lines outputting the base vertex positions.
+triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(width, 0, 0)), float2(0, 0)));
+triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(-width, 0, 0)), float2(1, 0)));
+```
+
+## 叶片的弯曲
+
+做到了这一步，现在我们已经拥有了一个三个顶点组成的叶片。在远处看着还挺好的，但到了近处，它就怎么也不像是草了（更像是刺儿）。所以接下来要做的是在刺儿上多加几个点，让它可以随风弯曲。
+
+（依然没有翻译完，待续）
