@@ -43,9 +43,9 @@ comments: true
 
 我购买的是深空灰色。前文中提到，我认为它的颜值是所有笔记本里第二高的，仅此于MacBook Air。为什么呢？
 
-![image](https://imgchr.com/i/GI5AXD)
+![image](https://s1.ax1x.com/2020/04/10/GI5AXD.jpg)
 
-![image](https://imgchr.com/i/GI5k6O)
+![image](https://s1.ax1x.com/2020/04/10/GI5k6O.md.jpg)
 
 MacBook采用的铝制磨砂外壳真的很漂亮，丝毫没有塑料带来的廉价感，深空灰色相当深邃而且恰到好处，你很难在其他的哪个厂商的设备上看到这样的灰色。（使用这种外壳的代价就是，外壳硬度差，比较软，碰到尖锐的地方大概率会有划痕）
 
@@ -53,7 +53,7 @@ MacBook的机身也是我看到的最浑然一体的机身之一，正常使用�
 
 MacBook Pro附带了一个Touch Bar。关于Touch Bar和实体键哪个更好见仁见智，但是Touch Bar真的很漂亮。谁不喜欢一个闪闪发光还能显示各种各样内容的地方呢？何况Touch Bar上按键和UI组件的设计延续了Apple一贯的高水平，很简约，但是也只有Apple做得那么棒——当然，没有iPhone的UI那么用心。iPhone的亮度图标和Touch Bar上的图标全部都是一个发着光的太阳，但是iPhone的太阳光线长短会根据当前亮度变化，Touch Bar和macOS Catalina上的就不会，谁是Apple的当家主力不用我说了8？
 
-![image](https://imgchr.com/i/GI5Vne)
+![image](https://s1.ax1x.com/2020/04/10/GI5Vne.md.jpg)
 
 我唯一感觉MacBook Pro不如MacBook Air的地方，是MacBook Air的楔形设计实在太棒了。楔形的线条优雅而流畅，从触控板的方向看过去，你感知不到后面变厚的那部分，只能感受到前面的纤薄。MacBook Pro从触控板这边看过去，明显让人感受到有一个厚度，让看惯了MacBook Air的我感受到了一种笨重感。但实际上也没法去苛责MacBook Pro什么，毕竟它1.62厘米的厚度里面有一只八核十六线程的intel九代i9处理器，一只Readon Pro独立显卡，还有出色的扬声器和麦克风阵列。为了厚度，MacBook Pro的散热策略极为激进，也只使用了一根热管来压这两个发热怪兽（传说中的单核压i9）。
 
